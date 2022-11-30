@@ -8,9 +8,6 @@ const Task = ({ todo }) => {
   const [editedTask, setEditedTask] = useState("");
   return (
     <div
-      onClick={() => {
-        document.getElementById(todo.id).style.display = "block";
-      }}
       onDoubleClick={() => {
         dispatch(doTodo(todo));
       }}
@@ -21,7 +18,13 @@ const Task = ({ todo }) => {
         </div>
       ) : (
         <div className="not-done-todo-card">
-          <p>{todo.discription}</p>
+          <p
+            onClick={() => {
+              document.getElementById(todo.id).style.display = "block";
+            }}
+          >
+            {todo.discription}
+          </p>
           <div id={todo.id} style={{ display: "none" }}>
             <input
               type="text"
@@ -33,6 +36,7 @@ const Task = ({ todo }) => {
             <button
               onClick={() => {
                 dispatch(editTodo([todo, editedTask]));
+                document.getElementById(todo.id).style.display = "none";
               }}
             >
               Edit Task
