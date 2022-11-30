@@ -1,0 +1,22 @@
+p {
+  font-weight: bold;
+  user-select: none;
+}
+.done-todo-card,
+.not-done-todo-card {
+  margin: 20px;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.done-todo-card:hover,
+.not-done-todo-card:hover {
+  box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.done-todo-card {
+  border: 1px solid green;
+  text-decoration: line-through;
+}
+.not-done-todo-card {
+  border: 1px solid red;
+}
